@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Détecteur de Spam</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 Détecteur de Spam</h1>
+            <p class="subtitle">Analysez vos messages avec l'intelligence artificielle</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <label for="messageInput">Entrez votre message :</label>
+                <textarea 
+                    id="messageInput" 
+                    placeholder="Exemple: URGENT! Gagnez 1000€ maintenant! Cliquez ici..."
+                    rows="6"
+                ></textarea>
+                <button id="analyzeBtn" onclick="analyzeMessage()">
+                    <span id="btnText">Analyser</span>
+                    <span id="btnLoader" class="loader hidden"></span>
+                </button>
+            </div>
+
+            <div id="resultSection" class="result-section hidden">
+                <div id="resultCard" class="result-card">
+                    <div class="result-header">
+                        <h2 id="resultTitle">Résultat</h2>
+                        <span id="resultBadge" class="badge"></span>
+                    </div>
+                    <div class="confidence-section">
+                        <div class="confidence-bar-container">
+                            <div class="confidence-label">
+                                <span>Confiance Spam</span>
+                                <span id="spamPercent">0%</span>
+                            </div>
+                            <div class="confidence-bar">
+                                <div id="spamBar" class="confidence-fill spam-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="confidence-bar-container">
+                            <div class="confidence-label">
+                                <span>Confiance Ham (Légitime)</span>
+                                <span id="hamPercent">0%</span>
+                            </div>
+                            <div class="confidence-bar">
+                                <div id="hamBar" class="confidence-fill ham-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="errorSection" class="error-section hidden">
+                <p id="errorMessage"></p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by Machine Learning (Naive Bayes + TF-IDF)</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
