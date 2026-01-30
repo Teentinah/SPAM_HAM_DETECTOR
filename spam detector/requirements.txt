@@ -5,6 +5,3 @@ scikit-learn
 numpy
 joblib
 requests
-gunicorn
-
-
